@@ -4,12 +4,16 @@ import (
 	"os"
 	"path/filepath"
 
+	couchbasev2 "github.com/couchbase/couchbase-operator/pkg/apis/couchbase/v2"
 	corev1 "k8s.io/api/core/v1"
+
+	"sigs.k8s.io/yaml"
 )
 
 type LogArtifact struct {
 	pods []*corev1.Pod
 	pvc  []*corev1.PersistentVolumeClaim
+	cbc  []*couchbasev2.CouchbaseCluster
 }
 
 type CbOpInfo struct {
@@ -57,17 +61,63 @@ func ParseNamespace(path string) (*LogArtifact, error) {
 	}
 	artifacts := &LogArtifact{}
 	for _, resource := range resources {
+		resourcePath := filepath.Join(path, resource.Name())
 		switch resource.Name() {
 		case "pod":
-			pods, err := ParsePods(filepath.Join(path, resource.Name()))
+			pods, err := ParseResourceFolder[corev1.Pod](resourcePath)
 			if err != nil {
 				continue
 			}
 
 			artifacts.pods = pods
 		case "persistentvolumeclaim":
+			pvcs, err := ParseResourceFolder[corev1.PersistentVolumeClaim](resourcePath)
+			if err != nil {
+				continue
+			}
+
+			artifacts.pvc = pvcs
+		case "couchbasecluster":
+			clusters, err := ParseResourceFolder[couchbasev2.CouchbaseCluster](resourcePath)
+			if err != nil {
+				continue
+			}
+
+			artifacts.cbc = clusters
 		}
 	}
 
 	return artifacts, nil
+}
+
+func ParseResourceFolder[T any](path string) ([]*T, error) {
+	resources, err := os.ReadDir(path)
+	if err != nil {
+		return nil, err
+	}
+
+	parsedResources := make([]*T, 0, len(resources))
+	for _, resource := range resources {
+		resourceYaml := filepath.Join(path, resource.Name(), resource.Name()+".yaml")
+		resource, err := ParseResourceYaml[T](resourceYaml)
+		if err != nil {
+			continue
+		}
+		parsedResources = append(parsedResources, resource)
+
+	}
+
+	return parsedResources, nil
+}
+
+func ParseResourceYaml[T any](path string) (*T, error) {
+	file, err := os.ReadFile(path)
+	if err != nil {
+		return nil, err
+	}
+
+	var resource = new(T)
+
+	err = yaml.Unmarshal(file, resource)
+	return resource, err
 }
