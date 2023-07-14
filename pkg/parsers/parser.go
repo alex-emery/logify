@@ -5,30 +5,38 @@ import (
 	"path/filepath"
 
 	couchbasev2 "github.com/couchbase/couchbase-operator/pkg/apis/couchbase/v2"
+	"go.uber.org/zap"
 	corev1 "k8s.io/api/core/v1"
 
 	"sigs.k8s.io/yaml"
 )
 
 type LogArtifact struct {
-	pods []*corev1.Pod
-	pvc  []*corev1.PersistentVolumeClaim
-	cbc  []*couchbasev2.CouchbaseCluster
+	Pods   map[string]*corev1.Pod
+	Pvc    map[string]*corev1.PersistentVolumeClaim
+	Cbc    map[string]*couchbasev2.CouchbaseCluster
+	Events []corev1.Event
 }
 
 type CbOpInfo struct {
 	Namespaces map[string]*LogArtifact
 }
 
-func NewCbOpInfo() CbOpInfo {
+func newCbOpInfo() CbOpInfo {
 	return CbOpInfo{
 		Namespaces: make(map[string]*LogArtifact),
 	}
 }
 
-// parses the namespace folder within a cbopinfo folder.
-// i.e cbopinfo/namespaces/<namespace>
-func ParseCbOpInfo(path string) (*CbOpInfo, error) {
+type Parser struct {
+	logger *zap.Logger
+}
+
+func New(logger *zap.Logger) *Parser {
+	return &Parser{logger: logger}
+}
+
+func (p *Parser) Parse(path string) (*CbOpInfo, error) {
 	path += "/namespace"
 
 	namespaces, err := os.ReadDir(path)
@@ -36,88 +44,107 @@ func ParseCbOpInfo(path string) (*CbOpInfo, error) {
 		return nil, err
 	}
 
-	cbopInfo := NewCbOpInfo()
+	cbopInfo := newCbOpInfo()
 	for _, namespace := range namespaces {
 		if !namespace.IsDir() {
 			continue
 		}
 
-		namespaceLogs, err := ParseNamespace(filepath.Join(path, namespace.Name()))
+		namespacePath := filepath.Join(path, namespace.Name())
+		namespaceLogs, err := ParseNamespace(namespacePath)
 		if err != nil {
-			// parsing is best effort so continue anywa and just let the user know it failed
+			p.logger.Error("failed to parse resources", zap.String("namespace", namespace.Name()), zap.Error(err))
 			continue
 		}
 
 		cbopInfo.Namespaces[namespace.Name()] = namespaceLogs
+
+		events, err := ParseEvents(namespacePath)
+		if err != nil {
+			p.logger.Error("failed to parse events", zap.String("namespace", namespace.Name()), zap.Error(err))
+			continue
+		}
+
+		cbopInfo.Namespaces[namespace.Name()].Events = events
 	}
 
 	return &cbopInfo, nil
+
 }
 
 func ParseNamespace(path string) (*LogArtifact, error) {
+
 	resources, err := os.ReadDir(path)
 	if err != nil {
 		return nil, err
 	}
+
 	artifacts := &LogArtifact{}
+
 	for _, resource := range resources {
 		resourcePath := filepath.Join(path, resource.Name())
+
 		switch resource.Name() {
 		case "pod":
-			pods, err := ParseResourceFolder[corev1.Pod](resourcePath)
+			pods, err := ParseResourceFolder[*corev1.Pod](resourcePath)
 			if err != nil {
 				continue
 			}
 
-			artifacts.pods = pods
+			artifacts.Pods = pods
 		case "persistentvolumeclaim":
-			pvcs, err := ParseResourceFolder[corev1.PersistentVolumeClaim](resourcePath)
+			pvcs, err := ParseResourceFolder[*corev1.PersistentVolumeClaim](resourcePath)
 			if err != nil {
 				continue
 			}
 
-			artifacts.pvc = pvcs
+			artifacts.Pvc = pvcs
 		case "couchbasecluster":
-			clusters, err := ParseResourceFolder[couchbasev2.CouchbaseCluster](resourcePath)
+			clusters, err := ParseResourceFolder[*couchbasev2.CouchbaseCluster](resourcePath)
 			if err != nil {
 				continue
 			}
 
-			artifacts.cbc = clusters
+			artifacts.Cbc = clusters
 		}
 	}
 
 	return artifacts, nil
 }
 
-func ParseResourceFolder[T any](path string) ([]*T, error) {
+func ParseResourceYaml[T any](path string) (T, error) {
+	var resource = new(T)
+	file, err := os.ReadFile(path)
+	if err != nil {
+		return *resource, err
+	}
+
+	err = yaml.Unmarshal(file, resource)
+	return *resource, err
+}
+
+type Resource interface {
+	GetName() string
+}
+
+func ParseResourceFolder[T Resource](path string) (map[string]T, error) {
 	resources, err := os.ReadDir(path)
 	if err != nil {
 		return nil, err
 	}
 
-	parsedResources := make([]*T, 0, len(resources))
+	parsedResources := make(map[string]T)
 	for _, resource := range resources {
 		resourceYaml := filepath.Join(path, resource.Name(), resource.Name()+".yaml")
+
 		resource, err := ParseResourceYaml[T](resourceYaml)
 		if err != nil {
 			continue
 		}
-		parsedResources = append(parsedResources, resource)
+
+		parsedResources[resource.GetName()] = resource
 
 	}
 
 	return parsedResources, nil
-}
-
-func ParseResourceYaml[T any](path string) (*T, error) {
-	file, err := os.ReadFile(path)
-	if err != nil {
-		return nil, err
-	}
-
-	var resource = new(T)
-
-	err = yaml.Unmarshal(file, resource)
-	return resource, err
 }
