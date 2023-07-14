@@ -1,0 +1,78 @@
+- count: 1
+  eventTime: null
+  firstTimestamp: "2023-07-14T16:10:01Z"
+  involvedObject:
+    apiVersion: couchbase.com/v2
+    kind: CouchbaseBackup
+    name: my-backup
+    namespace: default
+    uid: 76fbc819-46b8-4d91-a198-1391dabb53ab
+  lastTimestamp: "2023-07-14T16:10:01Z"
+  message: Backup `my-backup` started
+  metadata:
+    creationTimestamp: "2023-07-14T16:10:01Z"
+    generateName: my-backup-
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:metadata:
+          f:generateName: {}
+        f:reason: {}
+        f:type: {}
+      manager: OpenAPI-Generator
+      operation: Update
+      time: "2023-07-14T16:10:01Z"
+    name: my-backup-9rrrk
+    namespace: default
+    resourceVersion: "12887"
+    uid: 01a967c9-7b25-4540-bac6-ac89ae4033cd
+  reason: BackupStarted
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2023-07-14T16:10:05Z"
+  involvedObject:
+    apiVersion: couchbase.com/v2
+    kind: CouchbaseBackup
+    name: my-backup
+    namespace: default
+    uid: 76fbc819-46b8-4d91-a198-1391dabb53ab
+  lastTimestamp: "2023-07-14T16:10:05Z"
+  message: Backup `my-backup` completed
+  metadata:
+    creationTimestamp: "2023-07-14T16:10:05Z"
+    generateName: my-backup-
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:metadata:
+          f:generateName: {}
+        f:reason: {}
+        f:type: {}
+      manager: OpenAPI-Generator
+      operation: Update
+      time: "2023-07-14T16:10:05Z"
+    name: my-backup-6bmck
+    namespace: default
+    resourceVersion: "12895"
+    uid: 325303ed-f2c3-4f8f-b05d-c9c834c62726
+  reason: BackupCompleted
+  reportingComponent: ""
+  reportingInstance: ""
+  source: {}
+  type: Normal

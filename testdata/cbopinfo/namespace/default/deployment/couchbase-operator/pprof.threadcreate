@@ -1,0 +1,11 @@
+threadcreate profile: total 22
+21 @
+#	0x0
+
+1 @ 0x43fc75 0x44047b 0x440790 0x445b5d 0x450b2e 0x46dda1
+#	0x43fc74	runtime.allocm+0xd4			runtime/proc.go:1761
+#	0x44047a	runtime.newm+0x3a			runtime/proc.go:2109
+#	0x44078f	runtime.startTemplateThread+0x8f	runtime/proc.go:2186
+#	0x445b5c	runtime.LockOSThread+0x1c		runtime/proc.go:4405
+#	0x450b2d	runtime.ensureSigM.func1+0x2d		runtime/signal_unix.go:977
+

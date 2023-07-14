@@ -1,0 +1,136 @@
+apiVersion: couchbase.com/v2
+kind: CouchbaseBackup
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"couchbase.com/v2","kind":"CouchbaseBackup","metadata":{"annotations":{},"name":"my-backup","namespace":"default"},"spec":{"full":{"schedule":"10 * * * *"},"incremental":{"schedule":"0 3 * * 1-6"},"objectStore":{"secret":"s3-secret","uri":"az://backup"},"size":"20Gi","strategy":"full_incremental"}}
+  creationTimestamp: "2023-07-14T13:02:54Z"
+  generation: 12
+  managedFields:
+  - apiVersion: couchbase.com/v2
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+      f:spec:
+        .: {}
+        f:backoffLimit: {}
+        f:backupRetention: {}
+        f:defaultRecoveryType: {}
+        f:ephemeralVolume: {}
+        f:failedJobsHistoryLimit: {}
+        f:full:
+          .: {}
+          f:schedule: {}
+        f:incremental:
+          .: {}
+          f:schedule: {}
+        f:logRetention: {}
+        f:objectStore:
+          .: {}
+          f:secret: {}
+          f:uri: {}
+        f:services:
+          .: {}
+          f:analytics: {}
+          f:bucketConfig: {}
+          f:bucketQuery: {}
+          f:clusterAnalytics: {}
+          f:clusterQuery: {}
+          f:data: {}
+          f:eventing: {}
+          f:ftsAliases: {}
+          f:ftsIndexes: {}
+          f:gsIndexes: {}
+          f:views: {}
+        f:size: {}
+        f:strategy: {}
+        f:successfulJobsHistoryLimit: {}
+        f:threads: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2023-07-14T13:08:08Z"
+  - apiVersion: couchbase.com/v2
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        .: {}
+        f:archive: {}
+        f:backups: {}
+        f:capacityUsed: {}
+        f:cronjob: {}
+        f:duration: {}
+        f:failed: {}
+        f:job: {}
+        f:lastRun: {}
+        f:lastSuccess: {}
+        f:pod: {}
+        f:repo: {}
+        f:running: {}
+    manager: OpenAPI-Generator
+    operation: Update
+    time: "2023-07-14T16:10:05Z"
+  name: my-backup
+  namespace: default
+  resourceVersion: "12894"
+  uid: 76fbc819-46b8-4d91-a198-1391dabb53ab
+spec:
+  backoffLimit: 2
+  backupRetention: 720h
+  defaultRecoveryType: none
+  ephemeralVolume: false
+  failedJobsHistoryLimit: 3
+  full:
+    schedule: 10 * * * *
+  incremental:
+    schedule: 0 3 * * 1-6
+  logRetention: 168h
+  objectStore:
+    secret: s3-secret
+    uri: az://backup
+  services:
+    analytics: true
+    bucketConfig: true
+    bucketQuery: true
+    clusterAnalytics: true
+    clusterQuery: true
+    data: true
+    eventing: true
+    ftsAliases: true
+    ftsIndexes: true
+    gsIndexes: true
+    views: true
+  size: 20Gi
+  strategy: full_incremental
+  successfulJobsHistoryLimit: 3
+  threads: 1
+status:
+  archive: az://backup/archive
+  backups:
+  - full: 2023-07-14T13_09_45.254341014Z
+    incrementals: []
+    name: cb-example-2023-07-14T13_09_44
+  - full: 2023-07-14T13_10_01.535189906Z
+    incrementals: []
+    name: cb-example-2023-07-14T13_10_00
+  - full: 2023-07-14T14_10_01.834715318Z
+    incrementals: []
+    name: cb-example-2023-07-14T14_10_01
+  - full: 2023-07-14T15_10_01.819153496Z
+    incrementals: []
+    name: cb-example-2023-07-14T15_10_01
+  - full: 2023-07-14T16_10_01.894821137Z
+    incrementals: []
+    name: cb-example-2023-07-14T16_10_01
+  capacityUsed: 492666Mi
+  cronjob: deprecated
+  duration: 5s
+  failed: false
+  job: deprecated
+  lastRun: "2023-07-14T16:10:01Z"
+  lastSuccess: "2023-07-14T16:10:05Z"
+  pod: deprecated
+  repo: cb-example-2023-07-14T16_10_01
+  running: false

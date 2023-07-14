@@ -1,0 +1,609 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    operator.couchbase.com/version: 2.5.0
+    pod.couchbase.com/initialized: "true"
+    pod.couchbase.com/spec: '{"volumes":[{"name":"couchbase-server-tls-ca","secret":{"secretName":"cb-example-tls-ca-shadow"}}],"containers":[{"name":"couchbase-server","image":"couchbase/server:7.1.3","ports":[{"name":"tcp-4369","containerPort":4369,"protocol":"TCP"},{"name":"tcp-8091","containerPort":8091,"protocol":"TCP"},{"name":"tcp-8092","containerPort":8092,"protocol":"TCP"},{"name":"tcp-8093","containerPort":8093,"protocol":"TCP"},{"name":"tcp-8094","containerPort":8094,"protocol":"TCP"},{"name":"tcp-8095","containerPort":8095,"protocol":"TCP"},{"name":"tcp-8096","containerPort":8096,"protocol":"TCP"},{"name":"tcp-9100","containerPort":9100,"protocol":"TCP"},{"name":"tcp-9101","containerPort":9101,"protocol":"TCP"},{"name":"tcp-9102","containerPort":9102,"protocol":"TCP"},{"name":"tcp-9103","containerPort":9103,"protocol":"TCP"},{"name":"tcp-9104","containerPort":9104,"protocol":"TCP"},{"name":"tcp-9105","containerPort":9105,"protocol":"TCP"},{"name":"tcp-9110","containerPort":9110,"protocol":"TCP"},{"name":"tcp-9111","containerPort":9111,"protocol":"TCP"},{"name":"tcp-9112","containerPort":9112,"protocol":"TCP"},{"name":"tcp-9113","containerPort":9113,"protocol":"TCP"},{"name":"tcp-9114","containerPort":9114,"protocol":"TCP"},{"name":"tcp-9115","containerPort":9115,"protocol":"TCP"},{"name":"tcp-9116","containerPort":9116,"protocol":"TCP"},{"name":"tcp-9117","containerPort":9117,"protocol":"TCP"},{"name":"tcp-9118","containerPort":9118,"protocol":"TCP"},{"name":"tcp-9120","containerPort":9120,"protocol":"TCP"},{"name":"tcp-9121","containerPort":9121,"protocol":"TCP"},{"name":"tcp-9122","containerPort":9122,"protocol":"TCP"},{"name":"tcp-9130","containerPort":9130,"protocol":"TCP"},{"name":"tcp-9140","containerPort":9140,"protocol":"TCP"},{"name":"tcp-9999","containerPort":9999,"protocol":"TCP"},{"name":"tcp-11207","containerPort":11207,"protocol":"TCP"},{"name":"tcp-11209","containerPort":11209,"protocol":"TCP"},{"name":"tcp-11210","containerPort":11210,"protocol":"TCP"},{"name":"tcp-18091","containerPort":18091,"protocol":"TCP"},{"name":"tcp-18092","containerPort":18092,"protocol":"TCP"},{"name":"tcp-18093","containerPort":18093,"protocol":"TCP"},{"name":"tcp-18094","containerPort":18094,"protocol":"TCP"},{"name":"tcp-18095","containerPort":18095,"protocol":"TCP"},{"name":"tcp-18096","containerPort":18096,"protocol":"TCP"},{"name":"tcp-19102","containerPort":19102,"protocol":"TCP"},{"name":"tcp-19130","containerPort":19130,"protocol":"TCP"},{"name":"tcp-21100","containerPort":21100,"protocol":"TCP"},{"name":"tcp-21150","containerPort":21150,"protocol":"TCP"}],"resources":{},"volumeMounts":[{"name":"couchbase-server-tls-ca","readOnly":true,"mountPath":"/opt/couchbase/var/lib/couchbase/inbox/CA"}],"readinessProbe":{"tcpSocket":{"port":8091},"initialDelaySeconds":10,"timeoutSeconds":5,"periodSeconds":20,"failureThreshold":1}}],"restartPolicy":"Never","hostname":"cb-example-0002","subdomain":"cb-example","readinessGates":[{"conditionType":"pod.couchbase.com/readiness"}]}'
+    prometheus.io/path: /metrics
+    prometheus.io/port: "8091"
+    prometheus.io/scrape: "true"
+    server.couchbase.com/version: 7.1.3
+  creationTimestamp: "2023-07-14T13:06:44Z"
+  labels:
+    app: couchbase
+    couchbase_cloud_native_gateway: enabled
+    couchbase_cluster: cb-example
+    couchbase_node: cb-example-0002
+    couchbase_node_conf: all_services
+    couchbase_server: "true"
+    couchbase_service_analytics: enabled
+    couchbase_service_data: enabled
+    couchbase_service_eventing: enabled
+    couchbase_service_index: enabled
+    couchbase_service_query: enabled
+    couchbase_service_search: enabled
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:operator.couchbase.com/version: {}
+          f:pod.couchbase.com/initialized: {}
+          f:pod.couchbase.com/spec: {}
+          f:prometheus.io/path: {}
+          f:prometheus.io/port: {}
+          f:prometheus.io/scrape: {}
+          f:server.couchbase.com/version: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:couchbase_cloud_native_gateway: {}
+          f:couchbase_cluster: {}
+          f:couchbase_node: {}
+          f:couchbase_node_conf: {}
+          f:couchbase_server: {}
+          f:couchbase_service_analytics: {}
+          f:couchbase_service_data: {}
+          f:couchbase_service_eventing: {}
+          f:couchbase_service_index: {}
+          f:couchbase_service_query: {}
+          f:couchbase_service_search: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"76e27bb7-9c0d-4b7b-8d6a-2b937b83154a"}: {}
+      f:spec:
+        f:containers:
+          k:{"name":"couchbase-server"}:
+            .: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:name: {}
+            f:ports:
+              .: {}
+              k:{"containerPort":4369,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":8091,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":8092,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":8093,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":8094,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":8095,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":8096,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9100,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9101,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9102,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9103,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9104,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9105,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9110,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9111,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9112,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9113,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9114,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9115,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9116,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9117,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9118,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9120,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9121,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9122,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9130,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9140,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":9999,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":11207,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":11209,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":11210,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":18091,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":18092,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":18093,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":18094,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":18095,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":18096,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":19102,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":19130,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":21100,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+              k:{"containerPort":21150,"protocol":"TCP"}:
+                .: {}
+                f:containerPort: {}
+                f:name: {}
+                f:protocol: {}
+            f:readinessProbe:
+              .: {}
+              f:failureThreshold: {}
+              f:initialDelaySeconds: {}
+              f:periodSeconds: {}
+              f:successThreshold: {}
+              f:tcpSocket:
+                .: {}
+                f:port: {}
+              f:timeoutSeconds: {}
+            f:resources: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+            f:volumeMounts:
+              .: {}
+              k:{"mountPath":"/opt/couchbase/var/lib/couchbase/inbox/CA"}:
+                .: {}
+                f:mountPath: {}
+                f:name: {}
+                f:readOnly: {}
+        f:dnsPolicy: {}
+        f:enableServiceLinks: {}
+        f:hostname: {}
+        f:readinessGates: {}
+        f:restartPolicy: {}
+        f:schedulerName: {}
+        f:securityContext: {}
+        f:subdomain: {}
+        f:terminationGracePeriodSeconds: {}
+        f:volumes:
+          .: {}
+          k:{"name":"couchbase-server-tls-ca"}:
+            .: {}
+            f:name: {}
+            f:secret:
+              .: {}
+              f:defaultMode: {}
+              f:secretName: {}
+    manager: couchbase-operator
+    operation: Update
+    time: "2023-07-14T13:07:15Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          k:{"type":"pod.couchbase.com/readiness"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+    manager: couchbase-operator
+    operation: Update
+    subresource: status
+    time: "2023-07-14T13:07:43Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          k:{"type":"ContainersReady"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Initialized"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Ready"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:status: {}
+            f:type: {}
+        f:containerStatuses: {}
+        f:hostIP: {}
+        f:phase: {}
+        f:podIP: {}
+        f:podIPs:
+          .: {}
+          k:{"ip":"10.42.0.12"}:
+            .: {}
+            f:ip: {}
+        f:startTime: {}
+    manager: k3s
+    operation: Update
+    subresource: status
+    time: "2023-07-14T13:07:43Z"
+  name: cb-example-0002
+  namespace: default
+  ownerReferences:
+  - apiVersion: couchbase.com/v2
+    blockOwnerDeletion: true
+    controller: true
+    kind: CouchbaseCluster
+    name: cb-example
+    uid: 76e27bb7-9c0d-4b7b-8d6a-2b937b83154a
+  resourceVersion: "3919"
+  uid: 63bf765d-a8bf-4b14-b423-1a2598e27f32
+spec:
+  containers:
+  - image: couchbase/server:7.1.3
+    imagePullPolicy: IfNotPresent
+    name: couchbase-server
+    ports:
+    - containerPort: 4369
+      name: tcp-4369
+      protocol: TCP
+    - containerPort: 8091
+      name: tcp-8091
+      protocol: TCP
+    - containerPort: 8092
+      name: tcp-8092
+      protocol: TCP
+    - containerPort: 8093
+      name: tcp-8093
+      protocol: TCP
+    - containerPort: 8094
+      name: tcp-8094
+      protocol: TCP
+    - containerPort: 8095
+      name: tcp-8095
+      protocol: TCP
+    - containerPort: 8096
+      name: tcp-8096
+      protocol: TCP
+    - containerPort: 9100
+      name: tcp-9100
+      protocol: TCP
+    - containerPort: 9101
+      name: tcp-9101
+      protocol: TCP
+    - containerPort: 9102
+      name: tcp-9102
+      protocol: TCP
+    - containerPort: 9103
+      name: tcp-9103
+      protocol: TCP
+    - containerPort: 9104
+      name: tcp-9104
+      protocol: TCP
+    - containerPort: 9105
+      name: tcp-9105
+      protocol: TCP
+    - containerPort: 9110
+      name: tcp-9110
+      protocol: TCP
+    - containerPort: 9111
+      name: tcp-9111
+      protocol: TCP
+    - containerPort: 9112
+      name: tcp-9112
+      protocol: TCP
+    - containerPort: 9113
+      name: tcp-9113
+      protocol: TCP
+    - containerPort: 9114
+      name: tcp-9114
+      protocol: TCP
+    - containerPort: 9115
+      name: tcp-9115
+      protocol: TCP
+    - containerPort: 9116
+      name: tcp-9116
+      protocol: TCP
+    - containerPort: 9117
+      name: tcp-9117
+      protocol: TCP
+    - containerPort: 9118
+      name: tcp-9118
+      protocol: TCP
+    - containerPort: 9120
+      name: tcp-9120
+      protocol: TCP
+    - containerPort: 9121
+      name: tcp-9121
+      protocol: TCP
+    - containerPort: 9122
+      name: tcp-9122
+      protocol: TCP
+    - containerPort: 9130
+      name: tcp-9130
+      protocol: TCP
+    - containerPort: 9140
+      name: tcp-9140
+      protocol: TCP
+    - containerPort: 9999
+      name: tcp-9999
+      protocol: TCP
+    - containerPort: 11207
+      name: tcp-11207
+      protocol: TCP
+    - containerPort: 11209
+      name: tcp-11209
+      protocol: TCP
+    - containerPort: 11210
+      name: tcp-11210
+      protocol: TCP
+    - containerPort: 18091
+      name: tcp-18091
+      protocol: TCP
+    - containerPort: 18092
+      name: tcp-18092
+      protocol: TCP
+    - containerPort: 18093
+      name: tcp-18093
+      protocol: TCP
+    - containerPort: 18094
+      name: tcp-18094
+      protocol: TCP
+    - containerPort: 18095
+      name: tcp-18095
+      protocol: TCP
+    - containerPort: 18096
+      name: tcp-18096
+      protocol: TCP
+    - containerPort: 19102
+      name: tcp-19102
+      protocol: TCP
+    - containerPort: 19130
+      name: tcp-19130
+      protocol: TCP
+    - containerPort: 21100
+      name: tcp-21100
+      protocol: TCP
+    - containerPort: 21150
+      name: tcp-21150
+      protocol: TCP
+    readinessProbe:
+      failureThreshold: 1
+      initialDelaySeconds: 10
+      periodSeconds: 20
+      successThreshold: 1
+      tcpSocket:
+        port: 8091
+      timeoutSeconds: 5
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /opt/couchbase/var/lib/couchbase/inbox/CA
+      name: couchbase-server-tls-ca
+      readOnly: true
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-m8zxp
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  hostname: cb-example-0002
+  nodeName: k3d-k3s-default-server-0
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  readinessGates:
+  - conditionType: pod.couchbase.com/readiness
+  restartPolicy: Never
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  subdomain: cb-example
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: couchbase-server-tls-ca
+    secret:
+      defaultMode: 420
+      secretName: cb-example-tls-ca-shadow
+  - name: kube-api-access-m8zxp
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2023-07-14T13:07:43Z"
+    status: "True"
+    type: pod.couchbase.com/readiness
+  - lastProbeTime: null
+    lastTransitionTime: "2023-07-14T13:06:44Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2023-07-14T13:07:43Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2023-07-14T13:07:05Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2023-07-14T13:06:44Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: containerd://c2780204fe4ea0c87eee8483ece6641b68444dcb50146b7de74dc2b321879bd0
+    image: docker.io/couchbase/server:7.1.3
+    imageID: docker.io/couchbase/server@sha256:9a106746cf173a2850c1e8c62a0281791f5ae840a35a3fba4df814fda2995f9b
+    lastState: {}
+    name: couchbase-server
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2023-07-14T13:06:45Z"
+  hostIP: 172.19.0.2
+  phase: Running
+  podIP: 10.42.0.12
+  podIPs:
+  - ip: 10.42.0.12
+  qosClass: BestEffort
+  startTime: "2023-07-14T13:06:44Z"

@@ -1,0 +1,87 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    svc.couchbase.com/spec: '{"metadata":{"name":"cb-example-srv","creationTimestamp":null,"labels":{"app":"couchbase","couchbase_cluster":"cb-example","operator.couchbase.com/version":"2.5.0"},"ownerReferences":[{"apiVersion":"couchbase.com/v2","kind":"CouchbaseCluster","name":"cb-example","uid":"76e27bb7-9c0d-4b7b-8d6a-2b937b83154a","controller":true,"blockOwnerDeletion":true}]},"spec":{"ports":[{"name":"couchbase","protocol":"TCP","port":11210,"targetPort":0},{"name":"couchbases","protocol":"TCP","port":11207,"targetPort":0}],"selector":{"app":"couchbase","couchbase_cluster":"cb-example","couchbase_service_data":"enabled"},"clusterIP":"None","publishNotReadyAddresses":true},"status":{"loadBalancer":{}}}'
+  creationTimestamp: "2023-07-14T13:05:49Z"
+  labels:
+    app: couchbase
+    couchbase_cluster: cb-example
+    operator.couchbase.com/version: 2.5.0
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:svc.couchbase.com/spec: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:couchbase_cluster: {}
+          f:operator.couchbase.com/version: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"76e27bb7-9c0d-4b7b-8d6a-2b937b83154a"}: {}
+      f:spec:
+        f:clusterIP: {}
+        f:internalTrafficPolicy: {}
+        f:ports:
+          .: {}
+          k:{"port":11207,"protocol":"TCP"}:
+            .: {}
+            f:name: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+          k:{"port":11210,"protocol":"TCP"}:
+            .: {}
+            f:name: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:publishNotReadyAddresses: {}
+        f:selector: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: couchbase-operator
+    operation: Update
+    time: "2023-07-14T13:05:49Z"
+  name: cb-example-srv
+  namespace: default
+  ownerReferences:
+  - apiVersion: couchbase.com/v2
+    blockOwnerDeletion: true
+    controller: true
+    kind: CouchbaseCluster
+    name: cb-example
+    uid: 76e27bb7-9c0d-4b7b-8d6a-2b937b83154a
+  resourceVersion: "3749"
+  uid: aae453d8-2804-4f6e-9d75-429594ef744a
+spec:
+  clusterIP: None
+  clusterIPs:
+  - None
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: couchbase
+    port: 11210
+    protocol: TCP
+    targetPort: 11210
+  - name: couchbases
+    port: 11207
+    protocol: TCP
+    targetPort: 11207
+  publishNotReadyAddresses: true
+  selector:
+    app: couchbase
+    couchbase_cluster: cb-example
+    couchbase_service_data: enabled
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

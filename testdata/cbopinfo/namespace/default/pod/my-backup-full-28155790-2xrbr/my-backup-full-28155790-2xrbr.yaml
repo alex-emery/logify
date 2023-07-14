@@ -1,0 +1,277 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2023-07-14T15:10:00Z"
+  generateName: my-backup-full-28155790-
+  labels:
+    app: couchbase
+    controller-uid: 7cc54047-d6e2-43c9-9090-d8ee3e90780c
+    couchbase_backup: my-backup
+    couchbase_cluster: cb-example
+    job-name: my-backup-full-28155790
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:generateName: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:controller-uid: {}
+          f:couchbase_backup: {}
+          f:couchbase_cluster: {}
+          f:job-name: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"7cc54047-d6e2-43c9-9090-d8ee3e90780c"}: {}
+      f:spec:
+        f:affinity: {}
+        f:containers:
+          k:{"name":"cbbackupmgr-full"}:
+            .: {}
+            f:args: {}
+            f:env:
+              .: {}
+              k:{"name":"CB_OBJSTORE_ACCESS_KEY_ID"}:
+                .: {}
+                f:name: {}
+                f:valueFrom:
+                  .: {}
+                  f:secretKeyRef: {}
+              k:{"name":"CB_OBJSTORE_SECRET_ACCESS_KEY"}:
+                .: {}
+                f:name: {}
+                f:valueFrom:
+                  .: {}
+                  f:secretKeyRef: {}
+            f:image: {}
+            f:imagePullPolicy: {}
+            f:name: {}
+            f:resources: {}
+            f:terminationMessagePath: {}
+            f:terminationMessagePolicy: {}
+            f:volumeMounts:
+              .: {}
+              k:{"mountPath":"/data"}:
+                .: {}
+                f:mountPath: {}
+                f:name: {}
+              k:{"mountPath":"/var/run/secrets/couchbase"}:
+                .: {}
+                f:mountPath: {}
+                f:name: {}
+                f:readOnly: {}
+            f:workingDir: {}
+        f:dnsPolicy: {}
+        f:enableServiceLinks: {}
+        f:restartPolicy: {}
+        f:schedulerName: {}
+        f:securityContext: {}
+        f:serviceAccount: {}
+        f:serviceAccountName: {}
+        f:terminationGracePeriodSeconds: {}
+        f:volumes:
+          .: {}
+          k:{"name":"couchbase-admin"}:
+            .: {}
+            f:name: {}
+            f:secret:
+              .: {}
+              f:defaultMode: {}
+              f:secretName: {}
+          k:{"name":"couchbase-cluster-backup-volume"}:
+            .: {}
+            f:name: {}
+            f:persistentVolumeClaim:
+              .: {}
+              f:claimName: {}
+    manager: k3s
+    operation: Update
+    time: "2023-07-14T15:10:00Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          k:{"type":"ContainersReady"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Initialized"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Ready"}:
+            .: {}
+            f:lastProbeTime: {}
+            f:lastTransitionTime: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+        f:containerStatuses: {}
+        f:hostIP: {}
+        f:phase: {}
+        f:podIP: {}
+        f:podIPs:
+          .: {}
+          k:{"ip":"10.42.0.18"}:
+            .: {}
+            f:ip: {}
+        f:startTime: {}
+    manager: k3s
+    operation: Update
+    subresource: status
+    time: "2023-07-14T15:10:07Z"
+  name: my-backup-full-28155790-2xrbr
+  namespace: default
+  ownerReferences:
+  - apiVersion: batch/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: Job
+    name: my-backup-full-28155790
+    uid: 7cc54047-d6e2-43c9-9090-d8ee3e90780c
+  resourceVersion: "9991"
+  uid: 16f1090c-cff4-4f06-bc71-9fb4ef58a6cf
+spec:
+  affinity: {}
+  containers:
+  - args:
+    - --mode
+    - backup
+    - --backup-ret
+    - "720.00"
+    - --log-ret
+    - "168.00"
+    - -v
+    - INFO
+    - cb-example
+    - --full
+    - --threads
+    - "1"
+    - --obj-store
+    - az://backup
+    env:
+    - name: CB_OBJSTORE_ACCESS_KEY_ID
+      valueFrom:
+        secretKeyRef:
+          key: access-key-id
+          name: s3-secret
+    - name: CB_OBJSTORE_SECRET_ACCESS_KEY
+      valueFrom:
+        secretKeyRef:
+          key: secret-access-key
+          name: s3-secret
+    image: cb-vanilla/operator-backup:1.3.5-101
+    imagePullPolicy: IfNotPresent
+    name: cbbackupmgr-full
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /data
+      name: couchbase-cluster-backup-volume
+    - mountPath: /var/run/secrets/couchbase
+      name: couchbase-admin
+      readOnly: true
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: kube-api-access-82ct2
+      readOnly: true
+    workingDir: /
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: k3d-k3s-default-server-0
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Never
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: couchbase-backup
+  serviceAccountName: couchbase-backup
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: couchbase-cluster-backup-volume
+    persistentVolumeClaim:
+      claimName: my-backup
+  - name: couchbase-admin
+    secret:
+      defaultMode: 420
+      secretName: cb-example-auth
+  - name: kube-api-access-82ct2
+    projected:
+      defaultMode: 420
+      sources:
+      - serviceAccountToken:
+          expirationSeconds: 3607
+          path: token
+      - configMap:
+          items:
+          - key: ca.crt
+            path: ca.crt
+          name: kube-root-ca.crt
+      - downwardAPI:
+          items:
+          - fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+            path: namespace
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2023-07-14T15:10:00Z"
+    reason: PodCompleted
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2023-07-14T15:10:05Z"
+    reason: PodCompleted
+    status: "False"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2023-07-14T15:10:05Z"
+    reason: PodCompleted
+    status: "False"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2023-07-14T15:10:00Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: containerd://671a934bb864915af83fb5463f2bb965f4b7734b12cd759708f4ca22b23bbb5b
+    image: docker.io/cb-vanilla/operator-backup:1.3.5-101
+    imageID: sha256:06bb88f484456816299e1e1ba745fcf3ecd12bcf2b9124b1f55ee8d3ce2bef24
+    lastState: {}
+    name: cbbackupmgr-full
+    ready: false
+    restartCount: 0
+    started: false
+    state:
+      terminated:
+        containerID: containerd://671a934bb864915af83fb5463f2bb965f4b7734b12cd759708f4ca22b23bbb5b
+        exitCode: 0
+        finishedAt: "2023-07-14T15:10:05Z"
+        reason: Completed
+        startedAt: "2023-07-14T15:10:00Z"
+  hostIP: 172.19.0.2
+  phase: Succeeded
+  podIP: 10.42.0.18
+  podIPs:
+  - ip: 10.42.0.18
+  qosClass: BestEffort
+  startTime: "2023-07-14T15:10:00Z"

@@ -1,0 +1,80 @@
+- count: 1
+  eventTime: null
+  firstTimestamp: "2023-07-14T16:10:00Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: my-backup-full-28155850
+    namespace: default
+    resourceVersion: "12874"
+    uid: e60a2e1f-d6d1-4cb4-b644-b89687982ac8
+  lastTimestamp: "2023-07-14T16:10:00Z"
+  message: 'Created pod: my-backup-full-28155850-jvl98'
+  metadata:
+    creationTimestamp: "2023-07-14T16:10:00Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: k3s
+      operation: Update
+      time: "2023-07-14T16:10:00Z"
+    name: my-backup-full-28155850.1771c7c8b6e304be
+    namespace: default
+    resourceVersion: "12878"
+    uid: 306c4f67-a04b-48e0-b4dc-c3fe2e71b2a0
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2023-07-14T16:10:09Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: Job
+    name: my-backup-full-28155850
+    namespace: default
+    resourceVersion: "12903"
+    uid: e60a2e1f-d6d1-4cb4-b644-b89687982ac8
+  lastTimestamp: "2023-07-14T16:10:09Z"
+  message: Job completed
+  metadata:
+    creationTimestamp: "2023-07-14T16:10:09Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: k3s
+      operation: Update
+      time: "2023-07-14T16:10:09Z"
+    name: my-backup-full-28155850.1771c7cadfdff5e5
+    namespace: default
+    resourceVersion: "12906"
+    uid: fe436af8-3d6b-4265-9044-4d6ca0a4aa2c
+  reason: Completed
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: job-controller
+  type: Normal

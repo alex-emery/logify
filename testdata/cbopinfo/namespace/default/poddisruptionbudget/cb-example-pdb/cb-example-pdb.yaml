@@ -1,0 +1,85 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  annotations:
+    operator.couchbase.com/version: 2.5.0
+  creationTimestamp: "2023-07-14T13:07:43Z"
+  generation: 1
+  labels:
+    app: couchbase
+    couchbase_cluster: cb-example
+  managedFields:
+  - apiVersion: policy/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:operator.couchbase.com/version: {}
+        f:labels:
+          .: {}
+          f:app: {}
+          f:couchbase_cluster: {}
+        f:ownerReferences:
+          .: {}
+          k:{"uid":"76e27bb7-9c0d-4b7b-8d6a-2b937b83154a"}: {}
+      f:spec:
+        f:minAvailable: {}
+        f:selector: {}
+    manager: couchbase-operator
+    operation: Update
+    time: "2023-07-14T13:07:43Z"
+  - apiVersion: policy/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:conditions:
+          .: {}
+          k:{"type":"DisruptionAllowed"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:message: {}
+            f:observedGeneration: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+        f:currentHealthy: {}
+        f:desiredHealthy: {}
+        f:disruptionsAllowed: {}
+        f:expectedPods: {}
+        f:observedGeneration: {}
+    manager: k3s
+    operation: Update
+    subresource: status
+    time: "2023-07-14T13:07:43Z"
+  name: cb-example-pdb
+  namespace: default
+  ownerReferences:
+  - apiVersion: couchbase.com/v2
+    blockOwnerDeletion: true
+    controller: true
+    kind: CouchbaseCluster
+    name: cb-example
+    uid: 76e27bb7-9c0d-4b7b-8d6a-2b937b83154a
+  resourceVersion: "3925"
+  uid: 41e6ee7a-8878-4cea-a680-cf1d8dc6e842
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: couchbase
+      couchbase_cluster: cb-example
+      couchbase_server: "true"
+status:
+  conditions:
+  - lastTransitionTime: "2023-07-14T13:07:43Z"
+    message: ""
+    observedGeneration: 1
+    reason: SufficientPods
+    status: "True"
+    type: DisruptionAllowed
+  currentHealthy: 3
+  desiredHealthy: 2
+  disruptionsAllowed: 1
+  expectedPods: 3
+  observedGeneration: 1

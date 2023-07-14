@@ -1,0 +1,120 @@
+- count: 1
+  eventTime: null
+  firstTimestamp: "2023-07-14T16:10:00Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: CronJob
+    name: my-backup-full
+    namespace: default
+    resourceVersion: "9996"
+    uid: 83edd80d-df76-456f-a084-a1956f3f9da4
+  lastTimestamp: "2023-07-14T16:10:00Z"
+  message: Created job my-backup-full-28155850
+  metadata:
+    creationTimestamp: "2023-07-14T16:10:00Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: k3s
+      operation: Update
+      time: "2023-07-14T16:10:00Z"
+    name: my-backup-full.1771c7c8b65ee351
+    namespace: default
+    resourceVersion: "12875"
+    uid: 71d9dae4-a54f-4c42-91d9-46cb30396025
+  reason: SuccessfulCreate
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2023-07-14T16:10:09Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: CronJob
+    name: my-backup-full
+    namespace: default
+    resourceVersion: "12876"
+    uid: 83edd80d-df76-456f-a084-a1956f3f9da4
+  lastTimestamp: "2023-07-14T16:10:09Z"
+  message: 'Saw completed job: my-backup-full-28155850, status: Complete'
+  metadata:
+    creationTimestamp: "2023-07-14T16:10:09Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: k3s
+      operation: Update
+      time: "2023-07-14T16:10:09Z"
+    name: my-backup-full.1771c7cadfe5633b
+    namespace: default
+    resourceVersion: "12907"
+    uid: d889abdb-c11e-470d-9ad9-a9ff7d610c69
+  reason: SawCompletedJob
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal
+- count: 1
+  eventTime: null
+  firstTimestamp: "2023-07-14T16:10:09Z"
+  involvedObject:
+    apiVersion: batch/v1
+    kind: CronJob
+    name: my-backup-full
+    namespace: default
+    resourceVersion: "12876"
+    uid: 83edd80d-df76-456f-a084-a1956f3f9da4
+  lastTimestamp: "2023-07-14T16:10:09Z"
+  message: Deleted job my-backup-full-28155670
+  metadata:
+    creationTimestamp: "2023-07-14T16:10:09Z"
+    managedFields:
+    - apiVersion: v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:count: {}
+        f:firstTimestamp: {}
+        f:involvedObject: {}
+        f:lastTimestamp: {}
+        f:message: {}
+        f:reason: {}
+        f:source:
+          f:component: {}
+        f:type: {}
+      manager: k3s
+      operation: Update
+      time: "2023-07-14T16:10:09Z"
+    name: my-backup-full.1771c7cae02ecb75
+    namespace: default
+    resourceVersion: "12909"
+    uid: 028b2f18-b4ba-4f23-8001-2720beb26c20
+  reason: SuccessfulDelete
+  reportingComponent: ""
+  reportingInstance: ""
+  source:
+    component: cronjob-controller
+  type: Normal

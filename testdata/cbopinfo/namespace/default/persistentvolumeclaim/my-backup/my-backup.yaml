@@ -1,0 +1,82 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    pv.kubernetes.io/bind-completed: "yes"
+    pv.kubernetes.io/bound-by-controller: "yes"
+    volume.beta.kubernetes.io/storage-provisioner: rancher.io/local-path
+    volume.kubernetes.io/selected-node: k3d-k3s-default-server-0
+    volume.kubernetes.io/storage-provisioner: rancher.io/local-path
+  creationTimestamp: "2023-07-14T13:07:43Z"
+  finalizers:
+  - kubernetes.io/pvc-protection
+  labels:
+    app: couchbase
+    couchbase_cluster: cb-example
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:app: {}
+          f:couchbase_cluster: {}
+      f:spec:
+        f:accessModes: {}
+        f:resources:
+          f:requests:
+            .: {}
+            f:storage: {}
+        f:volumeMode: {}
+    manager: couchbase-operator
+    operation: Update
+    time: "2023-07-14T13:07:43Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:pv.kubernetes.io/bind-completed: {}
+          f:pv.kubernetes.io/bound-by-controller: {}
+          f:volume.beta.kubernetes.io/storage-provisioner: {}
+          f:volume.kubernetes.io/selected-node: {}
+          f:volume.kubernetes.io/storage-provisioner: {}
+      f:spec:
+        f:volumeName: {}
+    manager: k3s
+    operation: Update
+    time: "2023-07-14T13:09:42Z"
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:status:
+        f:accessModes: {}
+        f:capacity:
+          .: {}
+          f:storage: {}
+        f:phase: {}
+    manager: k3s
+    operation: Update
+    subresource: status
+    time: "2023-07-14T13:09:42Z"
+  name: my-backup
+  namespace: default
+  resourceVersion: "4059"
+  uid: bb1b8872-b23b-4a90-a029-46723ee50dad
+spec:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+  storageClassName: local-path
+  volumeMode: Filesystem
+  volumeName: pvc-bb1b8872-b23b-4a90-a029-46723ee50dad
+status:
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 20Gi
+  phase: Bound

@@ -1,0 +1,178 @@
+apiVersion: v1
+kind: Endpoints
+metadata:
+  creationTimestamp: "2023-07-14T13:05:49Z"
+  labels:
+    app: couchbase
+    couchbase_cluster: cb-example
+    operator.couchbase.com/version: 2.5.0
+    service.kubernetes.io/headless: ""
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:app: {}
+          f:couchbase_cluster: {}
+          f:operator.couchbase.com/version: {}
+          f:service.kubernetes.io/headless: {}
+      f:subsets: {}
+    manager: k3s
+    operation: Update
+    time: "2023-07-14T13:06:45Z"
+  name: cb-example
+  namespace: default
+  resourceVersion: "3848"
+  uid: 714ddc4f-5f8a-4d8d-8f62-a2ee66c3061c
+subsets:
+- addresses:
+  - hostname: cb-example-0000
+    ip: 10.42.0.11
+    nodeName: k3d-k3s-default-server-0
+    targetRef:
+      kind: Pod
+      name: cb-example-0000
+      namespace: default
+      uid: 790fc308-5883-47be-9ddc-a18e98f33440
+  - hostname: cb-example-0002
+    ip: 10.42.0.12
+    nodeName: k3d-k3s-default-server-0
+    targetRef:
+      kind: Pod
+      name: cb-example-0002
+      namespace: default
+      uid: 63bf765d-a8bf-4b14-b423-1a2598e27f32
+  - hostname: cb-example-0001
+    ip: 10.42.0.13
+    nodeName: k3d-k3s-default-server-0
+    targetRef:
+      kind: Pod
+      name: cb-example-0001
+      namespace: default
+      uid: d85be50d-8bb9-4149-b2d4-3bff6108f3b7
+  ports:
+  - name: tcp-19102
+    port: 19102
+    protocol: TCP
+  - name: tcp-11209
+    port: 11209
+    protocol: TCP
+  - name: tcp-9105
+    port: 9105
+    protocol: TCP
+  - name: tcp-9104
+    port: 9104
+    protocol: TCP
+  - name: tcp-18096
+    port: 18096
+    protocol: TCP
+  - name: tcp-18091
+    port: 18091
+    protocol: TCP
+  - name: tcp-18093
+    port: 18093
+    protocol: TCP
+  - name: tcp-8093
+    port: 8093
+    protocol: TCP
+  - name: tcp-8095
+    port: 8095
+    protocol: TCP
+  - name: tcp-9100
+    port: 9100
+    protocol: TCP
+  - name: tcp-9112
+    port: 9112
+    protocol: TCP
+  - name: tcp-9120
+    port: 9120
+    protocol: TCP
+  - name: tcp-8092
+    port: 8092
+    protocol: TCP
+  - name: tcp-9117
+    port: 9117
+    protocol: TCP
+  - name: tcp-9999
+    port: 9999
+    protocol: TCP
+  - name: tcp-9103
+    port: 9103
+    protocol: TCP
+  - name: tcp-9111
+    port: 9111
+    protocol: TCP
+  - name: couchbases
+    port: 11207
+    protocol: TCP
+  - name: tcp-18094
+    port: 18094
+    protocol: TCP
+  - name: tcp-9114
+    port: 9114
+    protocol: TCP
+  - name: tcp-18092
+    port: 18092
+    protocol: TCP
+  - name: tcp-21100
+    port: 21100
+    protocol: TCP
+  - name: tcp-4369
+    port: 4369
+    protocol: TCP
+  - name: couchbase
+    port: 11210
+    protocol: TCP
+  - name: tcp-8094
+    port: 8094
+    protocol: TCP
+  - name: tcp-19130
+    port: 19130
+    protocol: TCP
+  - name: tcp-9121
+    port: 9121
+    protocol: TCP
+  - name: tcp-9116
+    port: 9116
+    protocol: TCP
+  - name: tcp-8091
+    port: 8091
+    protocol: TCP
+  - name: tcp-9102
+    port: 9102
+    protocol: TCP
+  - name: tcp-9140
+    port: 9140
+    protocol: TCP
+  - name: tcp-8096
+    port: 8096
+    protocol: TCP
+  - name: tcp-9130
+    port: 9130
+    protocol: TCP
+  - name: tcp-9122
+    port: 9122
+    protocol: TCP
+  - name: tcp-9118
+    port: 9118
+    protocol: TCP
+  - name: tcp-9113
+    port: 9113
+    protocol: TCP
+  - name: tcp-21150
+    port: 21150
+    protocol: TCP
+  - name: tcp-18095
+    port: 18095
+    protocol: TCP
+  - name: tcp-9101
+    port: 9101
+    protocol: TCP
+  - name: tcp-9110
+    port: 9110
+    protocol: TCP
+  - name: tcp-9115
+    port: 9115
+    protocol: TCP

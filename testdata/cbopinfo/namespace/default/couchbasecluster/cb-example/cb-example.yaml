@@ -1,0 +1,206 @@
+apiVersion: couchbase.com/v2
+kind: CouchbaseCluster
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"couchbase.com/v2","kind":"CouchbaseCluster","metadata":{"annotations":{},"name":"cb-example","namespace":"default"},"spec":{"backup":{"image":"cb-vanilla/operator-backup:1.3.5-101","managed":true},"buckets":{"managed":true},"image":"couchbase/server:7.1.3","security":{"adminSecret":"cb-example-auth","rbac":{"managed":true}},"servers":[{"name":"all_services","services":["data","index","query","search","eventing","analytics"],"size":3}]}}
+  creationTimestamp: "2023-07-14T13:05:06Z"
+  finalizers:
+  - foregroundDeletion
+  generation: 15
+  managedFields:
+  - apiVersion: couchbase.com/v2
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+      f:spec:
+        .: {}
+        f:backup:
+          .: {}
+          f:image: {}
+          f:managed: {}
+          f:serviceAccountName: {}
+        f:buckets:
+          .: {}
+          f:managed: {}
+        f:cluster:
+          .: {}
+          f:analyticsServiceMemoryQuota: {}
+          f:autoCompaction:
+            .: {}
+            f:databaseFragmentationThreshold:
+              .: {}
+              f:percent: {}
+            f:viewFragmentationThreshold:
+              .: {}
+              f:percent: {}
+          f:autoFailoverMaxCount: {}
+          f:dataServiceMemoryQuota: {}
+          f:eventingServiceMemoryQuota: {}
+          f:indexServiceMemoryQuota: {}
+          f:indexStorageSetting: {}
+          f:searchServiceMemoryQuota: {}
+        f:image: {}
+        f:security:
+          .: {}
+          f:adminSecret: {}
+          f:rbac:
+            .: {}
+            f:managed: {}
+          f:uiSessionTimeout: {}
+        f:servers:
+          .: {}
+          k:{"name":"all_services"}:
+            .: {}
+            f:name: {}
+            f:services:
+              .: {}
+              v:"analytics": {}
+              v:"data": {}
+              v:"eventing": {}
+              v:"index": {}
+              v:"query": {}
+              v:"search": {}
+            f:size: {}
+    manager: kubectl-client-side-apply
+    operation: Update
+    time: "2023-07-14T13:05:06Z"
+  - apiVersion: couchbase.com/v2
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:finalizers:
+          .: {}
+          v:"foregroundDeletion": {}
+      f:spec:
+        f:cluster:
+          f:autoCompaction:
+            f:timeWindow:
+              .: {}
+              f:abortCompactionOutsideWindow: {}
+            f:tombstonePurgeInterval: {}
+          f:autoFailoverOnDataDiskIssuesTimePeriod: {}
+          f:autoFailoverTimeout: {}
+        f:logging: {}
+        f:networking:
+          .: {}
+          f:adminConsoleServiceType: {}
+          f:exposedFeatureServiceType: {}
+          f:waitForAddressReachable: {}
+          f:waitForAddressReachableDelay: {}
+        f:servers:
+          k:{"name":"all_services"}:
+            f:resources: {}
+        f:xdcr: {}
+      f:status:
+        .: {}
+        f:allocations: {}
+        f:buckets: {}
+        f:clusterId: {}
+        f:conditions: {}
+        f:currentVersion: {}
+        f:members:
+          .: {}
+          f:ready: {}
+        f:size: {}
+    manager: Go-http-client
+    operation: Update
+    time: "2023-07-14T13:07:44Z"
+  name: cb-example
+  namespace: default
+  resourceVersion: "3930"
+  uid: 76e27bb7-9c0d-4b7b-8d6a-2b937b83154a
+spec:
+  backup:
+    image: cb-vanilla/operator-backup:1.3.5-101
+    managed: true
+    serviceAccountName: couchbase-backup
+  buckets:
+    managed: true
+  cluster:
+    analyticsServiceMemoryQuota: 1Gi
+    autoCompaction:
+      databaseFragmentationThreshold:
+        percent: 30
+      timeWindow:
+        abortCompactionOutsideWindow: false
+      tombstonePurgeInterval: 72h0m0s
+      viewFragmentationThreshold:
+        percent: 30
+    autoFailoverMaxCount: 1
+    autoFailoverOnDataDiskIssuesTimePeriod: 2m0s
+    autoFailoverTimeout: 2m0s
+    dataServiceMemoryQuota: 256Mi
+    eventingServiceMemoryQuota: 256Mi
+    indexServiceMemoryQuota: 256Mi
+    indexStorageSetting: memory_optimized
+    searchServiceMemoryQuota: 256Mi
+  image: couchbase/server:7.1.3
+  logging: {}
+  networking:
+    adminConsoleServiceType: NodePort
+    exposedFeatureServiceType: NodePort
+    waitForAddressReachable: 10m0s
+    waitForAddressReachableDelay: 2m0s
+  security:
+    adminSecret: cb-example-auth
+    rbac:
+      managed: true
+    uiSessionTimeout: 0
+  servers:
+  - name: all_services
+    resources: {}
+    services:
+    - data
+    - index
+    - query
+    - search
+    - eventing
+    - analytics
+    size: 3
+  xdcr: {}
+status:
+  allocations:
+  - allocatedMemory: 2Gi
+    analyticsServiceAllocation: 1Gi
+    dataServiceAllocation: 256Mi
+    eventingServiceAllocation: 256Mi
+    indexServiceAllocation: 256Mi
+    name: all_services
+    searchServiceAllocation: 256Mi
+  buckets:
+  - compressionMode: passive
+    conflictResolution: seqno
+    enableFlush: false
+    enableIndexReplica: false
+    evictionPolicy: valueOnly
+    ioPriority: low
+    memoryQuota: 100
+    name: default
+    password: ""
+    replicas: 1
+    storageBackend: couchstore
+    type: couchbase
+  clusterId: 53221f424064415466a4a2c759b29891
+  conditions:
+  - lastTransitionTime: "2023-07-14T13:07:44Z"
+    lastUpdateTime: "2023-07-14T13:07:44Z"
+    reason: Available
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2023-07-14T13:07:42Z"
+    lastUpdateTime: "2023-07-14T13:07:42Z"
+    message: Data is equally distributed across all nodes in the cluster
+    reason: Balanced
+    status: "True"
+    type: Balanced
+  currentVersion: 7.1.3
+  members:
+    ready:
+    - cb-example-0000
+    - cb-example-0001
+    - cb-example-0002
+  size: 3

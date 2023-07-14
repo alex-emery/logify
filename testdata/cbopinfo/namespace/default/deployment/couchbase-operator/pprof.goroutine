@@ -1,0 +1,208 @@
+goroutine profile: total 206
+24 @ 0x43cb56 0x406cdb 0x4067d8 0x1499568 0x46dda1
+#	0x1499567	k8s.io/client-go/tools/cache.(*controller).Run.func1+0x27	k8s.io/client-go@v0.25.4/tools/cache/controller.go:131
+
+24 @ 0x43cb56 0x406cdb 0x4067d8 0x14a7025 0xfb37e2 0xfb3a5a 0x46dda1
+#	0x14a7024	k8s.io/client-go/tools/cache.(*sharedProcessor).run+0x44		k8s.io/client-go@v0.25.4/tools/cache/shared_informer.go:669
+#	0xfb37e1	k8s.io/apimachinery/pkg/util/wait.(*Group).StartWithChannel.func1+0x21	k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:58
+#	0xfb3a59	k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1+0x59		k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:75
+
+24 @ 0x43cb56 0x44c9fc 0x14a0b1d 0x46dda1
+#	0x14a0b1c	k8s.io/client-go/tools/cache.(*Reflector).ListAndWatch.func1+0x11c	k8s.io/client-go@v0.25.4/tools/cache/reflector.go:273
+
+24 @ 0x43cb56 0x44c9fc 0x14a21b8 0x14a034c 0x149fbe6 0xfb3e3e 0xfb3cf6 0x149fa7d 0xfb37e2 0xfb3a5a 0x46dda1
+#	0x14a21b7	k8s.io/client-go/tools/cache.watchHandler+0x1b7				k8s.io/client-go@v0.25.4/tools/cache/reflector.go:493
+#	0x14a034b	k8s.io/client-go/tools/cache.(*Reflector).ListAndWatch+0x62b		k8s.io/client-go@v0.25.4/tools/cache/reflector.go:329
+#	0x149fbe5	k8s.io/client-go/tools/cache.(*Reflector).Run.func1+0x25		k8s.io/client-go@v0.25.4/tools/cache/reflector.go:223
+#	0xfb3e3d	k8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1+0x3d		k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:157
+#	0xfb3cf5	k8s.io/apimachinery/pkg/util/wait.BackoffUntil+0xb5			k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:158
+#	0x149fa7c	k8s.io/client-go/tools/cache.(*Reflector).Run+0x17c			k8s.io/client-go@v0.25.4/tools/cache/reflector.go:222
+#	0xfb37e1	k8s.io/apimachinery/pkg/util/wait.(*Group).StartWithChannel.func1+0x21	k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:58
+#	0xfb3a59	k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1+0x59		k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:75
+
+24 @ 0x43cb56 0x44c9fc 0x8cd127 0x8cc65e 0x46dda1
+#	0x8cd126	golang.org/x/net/http2.(*clientStream).writeRequest+0xa86	golang.org/x/net@v0.8.0/http2/transport.go:1437
+#	0x8cc65d	golang.org/x/net/http2.(*clientStream).doRequest+0x1d		golang.org/x/net@v0.8.0/http2/transport.go:1299
+
+24 @ 0x43cb56 0x46a02c 0x46a00c 0x47608c 0x149c036 0x1499796 0xfb3e3e 0xfb3cf6 0xfb3be9 0x14994e6 0x149949d 0x14a4ebc 0x46dda1
+#	0x46a00b	sync.runtime_notifyListWait+0x12b				runtime/sema.go:517
+#	0x47608b	sync.(*Cond).Wait+0x8b						sync/cond.go:70
+#	0x149c035	k8s.io/client-go/tools/cache.(*DeltaFIFO).Pop+0x235		k8s.io/client-go@v0.25.4/tools/cache/delta_fifo.go:527
+#	0x1499795	k8s.io/client-go/tools/cache.(*controller).processLoop+0x35	k8s.io/client-go@v0.25.4/tools/cache/controller.go:184
+#	0xfb3e3d	k8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1+0x3d	k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:157
+#	0xfb3cf5	k8s.io/apimachinery/pkg/util/wait.BackoffUntil+0xb5		k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:158
+#	0xfb3be8	k8s.io/apimachinery/pkg/util/wait.JitterUntil+0x88		k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:135
+#	0x14994e5	k8s.io/apimachinery/pkg/util/wait.Until+0x2c5			k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:92
+#	0x149949c	k8s.io/client-go/tools/cache.(*controller).Run+0x27c		k8s.io/client-go@v0.25.4/tools/cache/controller.go:155
+#	0x14a4ebb	k8s.io/client-go/tools/cache.(*sharedIndexInformer).Run+0x49b	k8s.io/client-go@v0.25.4/tools/cache/shared_informer.go:443
+
+24 @ 0x43cb56 0x46a02c 0x46a00c 0x47608c 0x8c5b2b 0x8d3a75 0x75c0e8 0x75bcdb 0x75b918 0xb4cd5c 0xfcb187 0xfcb58f 0x8e0adc 0x46dda1
+#	0x46a00b	sync.runtime_notifyListWait+0x12b						runtime/sema.go:517
+#	0x47608b	sync.(*Cond).Wait+0x8b								sync/cond.go:70
+#	0x8c5b2a	golang.org/x/net/http2.(*pipe).Read+0xea					golang.org/x/net@v0.8.0/http2/pipe.go:76
+#	0x8d3a74	golang.org/x/net/http2.transportResponseBody.Read+0x74				golang.org/x/net@v0.8.0/http2/transport.go:2507
+#	0x75c0e7	encoding/json.(*Decoder).refill+0x187						encoding/json/stream.go:165
+#	0x75bcda	encoding/json.(*Decoder).readValue+0xba						encoding/json/stream.go:140
+#	0x75b917	encoding/json.(*Decoder).Decode+0x77						encoding/json/stream.go:63
+#	0xb4cd5b	k8s.io/apimachinery/pkg/util/framer.(*jsonFrameReader).Read+0x19b		k8s.io/apimachinery@v0.25.4/pkg/util/framer/framer.go:152
+#	0xfcb186	k8s.io/apimachinery/pkg/runtime/serializer/streaming.(*decoder).Decode+0xa6	k8s.io/apimachinery@v0.25.4/pkg/runtime/serializer/streaming/streaming.go:77
+#	0xfcb58e	k8s.io/client-go/rest/watch.(*Decoder).Decode+0x4e				k8s.io/client-go@v0.25.4/rest/watch/decoder.go:49
+#	0x8e0adb	k8s.io/apimachinery/pkg/watch.(*StreamWatcher).receive+0xdb			k8s.io/apimachinery@v0.25.4/pkg/watch/streamwatcher.go:105
+
+4 @ 0x43cb56 0x406cdb 0x406818 0x14e0646 0x46dda1
+#	0x14e0645	sigs.k8s.io/controller-runtime/pkg/manager.(*runnableGroup).reconcile+0x45	sigs.k8s.io/controller-runtime@v0.13.1/pkg/manager/runnable_group.go:179
+
+4 @ 0x43cb56 0x46a02c 0x46a00c 0x47608c 0xfb979e 0x15adbc2 0x15ad785 0x46dda1
+#	0x46a00b	sync.runtime_notifyListWait+0x12b								runtime/sema.go:517
+#	0x47608b	sync.(*Cond).Wait+0x8b										sync/cond.go:70
+#	0xfb979d	k8s.io/client-go/util/workqueue.(*Type).Get+0x9d						k8s.io/client-go@v0.25.4/util/workqueue/queue.go:157
+#	0x15adbc1	sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).processNextWorkItem+0x61	sigs.k8s.io/controller-runtime@v0.13.1/pkg/internal/controller/controller.go:256
+#	0x15ad784	sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).Start.func2.2+0x84		sigs.k8s.io/controller-runtime@v0.13.1/pkg/internal/controller/controller.go:234
+
+3 @ 0x43cb56 0x406cdb 0x4067d8 0x14af95c 0x46dda1
+#	0x14af95b	sigs.k8s.io/controller-runtime/pkg/cache/internal.(*specificInformersMap).Start+0x3b	sigs.k8s.io/controller-runtime@v0.13.1/pkg/cache/internal/informers_map.go:165
+
+3 @ 0x43cb56 0x4353f7 0x468469 0x4d51b2 0x4d651a 0x4d6508 0x5d0e89 0x5df165 0x6ead2e 0x65683f 0x65699d 0x6ebb4c 0x46dda1
+#	0x468468	internal/poll.runtime_pollWait+0x88		runtime/netpoll.go:305
+#	0x4d51b1	internal/poll.(*pollDesc).wait+0x31		internal/poll/fd_poll_runtime.go:84
+#	0x4d6519	internal/poll.(*pollDesc).waitRead+0x259	internal/poll/fd_poll_runtime.go:89
+#	0x4d6507	internal/poll.(*FD).Read+0x247			internal/poll/fd_unix.go:167
+#	0x5d0e88	net.(*netFD).Read+0x28				net/fd_posix.go:55
+#	0x5df164	net.(*conn).Read+0x44				net/net.go:183
+#	0x6ead2d	net/http.(*persistConn).Read+0x4d		net/http/transport.go:1929
+#	0x65683e	bufio.(*Reader).fill+0xfe			bufio/bufio.go:106
+#	0x65699c	bufio.(*Reader).Peek+0x5c			bufio/bufio.go:144
+#	0x6ebb4b	net/http.(*persistConn).readLoop+0x1ab		net/http/transport.go:2093
+
+3 @ 0x43cb56 0x44c9fc 0x6ed7d5 0x46dda1
+#	0x6ed7d4	net/http.(*persistConn).writeLoop+0xf4	net/http/transport.go:2392
+
+2 @ 0x43cb56 0x406cdb 0x406818 0x1492753 0x46dda1
+#	0x1492752	k8s.io/client-go/tools/record.(*eventBroadcasterImpl).StartEventWatcher.func1+0x72	k8s.io/client-go@v0.25.4/tools/record/event.go:307
+
+1 @ 0x40c3d4 0x46a48f 0x15f6979 0x46dda1
+#	0x46a48e	os/signal.signal_recv+0x2e	runtime/sigqueue.go:152
+#	0x15f6978	os/signal.loop+0x18		os/signal/signal_unix.go:23
+
+1 @ 0x431a96 0x467f45 0x73a8f5 0x73a70d 0x73766b 0x746845 0x7473de 0x6d158f 0x6d33e9 0x6d4e4c 0x6d0067 0x46dda1
+#	0x467f44	runtime/pprof.runtime_goroutineProfileWithLabels+0x24	runtime/mprof.go:846
+#	0x73a8f4	runtime/pprof.writeRuntimeProfile+0xb4			runtime/pprof/pprof.go:723
+#	0x73a70c	runtime/pprof.writeGoroutine+0x4c			runtime/pprof/pprof.go:683
+#	0x73766a	runtime/pprof.(*Profile).WriteTo+0x14a			runtime/pprof/pprof.go:330
+#	0x746844	net/http/pprof.handler.ServeHTTP+0x4a4			net/http/pprof/pprof.go:253
+#	0x7473dd	net/http/pprof.Index+0x13d				net/http/pprof/pprof.go:371
+#	0x6d158e	net/http.HandlerFunc.ServeHTTP+0x2e			net/http/server.go:2109
+#	0x6d33e8	net/http.(*ServeMux).ServeHTTP+0x148			net/http/server.go:2487
+#	0x6d4e4b	net/http.serverHandler.ServeHTTP+0x30b			net/http/server.go:2947
+#	0x6d0066	net/http.(*conn).serve+0x606				net/http/server.go:1991
+
+1 @ 0x43cb56 0x406cdb 0x4067d8 0x14aea6c 0x14b8a62 0x14e091b 0x46dda1
+#	0x14aea6b	sigs.k8s.io/controller-runtime/pkg/cache/internal.(*InformersMap).Start+0x1ab		sigs.k8s.io/controller-runtime@v0.13.1/pkg/cache/internal/deleg_map.go:71
+#	0x14b8a61	sigs.k8s.io/controller-runtime/pkg/cluster.(*cluster).Start+0x81			sigs.k8s.io/controller-runtime@v0.13.1/pkg/cluster/internal.go:127
+#	0x14e091a	sigs.k8s.io/controller-runtime/pkg/manager.(*runnableGroup).reconcile.func1+0xda	sigs.k8s.io/controller-runtime@v0.13.1/pkg/manager/runnable_group.go:219
+
+1 @ 0x43cb56 0x406cdb 0x4067d8 0x14dcb65 0x46dda1
+#	0x14dcb64	sigs.k8s.io/controller-runtime/pkg/manager.(*controllerManager).httpServe+0x2a4	sigs.k8s.io/controller-runtime@v0.13.1/pkg/manager/internal.go:384
+
+1 @ 0x43cb56 0x406cdb 0x4067d8 0x15acf4b 0x14e091b 0x46dda1
+#	0x15acf4a	sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).Start+0x18a	sigs.k8s.io/controller-runtime@v0.13.1/pkg/internal/controller/controller.go:246
+#	0x14e091a	sigs.k8s.io/controller-runtime/pkg/manager.(*runnableGroup).reconcile.func1+0xda	sigs.k8s.io/controller-runtime@v0.13.1/pkg/manager/runnable_group.go:219
+
+1 @ 0x43cb56 0x406cdb 0x4067d8 0x15adb32 0x46dda1
+#	0x15adb31	sigs.k8s.io/controller-runtime/pkg/internal/controller.(*Controller).Start.func1+0x31	sigs.k8s.io/controller-runtime@v0.13.1/pkg/internal/controller/controller.go:170
+
+1 @ 0x43cb56 0x406cdb 0x4067d8 0x15f6b2d 0x46dda1
+#	0x15f6b2c	sigs.k8s.io/controller-runtime/pkg/manager/signals.SetupSignalHandler.func1+0x2c	sigs.k8s.io/controller-runtime@v0.13.1/pkg/manager/signals/signal.go:38
+
+1 @ 0x43cb56 0x406cdb 0x406818 0x14a7e97 0xfb3e3e 0xfb3cf6 0xfb3be9 0x14a7e0b 0x14a7db5 0xfb3a5a 0x46dda1
+#	0x14a7e96	k8s.io/client-go/tools/cache.(*processorListener).run.func1+0x56	k8s.io/client-go@v0.25.4/tools/cache/shared_informer.go:813
+#	0xfb3e3d	k8s.io/apimachinery/pkg/util/wait.BackoffUntil.func1+0x3d		k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:157
+#	0xfb3cf5	k8s.io/apimachinery/pkg/util/wait.BackoffUntil+0xb5			k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:158
+#	0xfb3be8	k8s.io/apimachinery/pkg/util/wait.JitterUntil+0x88			k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:135
+#	0x14a7e0a	k8s.io/apimachinery/pkg/util/wait.Until+0x6a				k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:92
+#	0x14a7db4	k8s.io/client-go/tools/cache.(*processorListener).run+0x14		k8s.io/client-go@v0.25.4/tools/cache/shared_informer.go:812
+#	0xfb3a59	k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1+0x59		k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:75
+
+1 @ 0x43cb56 0x406cdb 0x406818 0x8e01e5 0x46dda1
+#	0x8e01e4	k8s.io/apimachinery/pkg/watch.(*Broadcaster).loop+0x64	k8s.io/apimachinery@v0.25.4/pkg/watch/mux.go:268
+
+1 @ 0x43cb56 0x406cdb 0x406818 0xfba607 0x46dda1
+#	0xfba606	k8s.io/client-go/util/workqueue.(*Type).updateUnfinishedWorkLoop+0xa6	k8s.io/client-go@v0.25.4/util/workqueue/queue.go:271
+
+1 @ 0x43cb56 0x4353f7 0x468469 0x4d51b2 0x4d651a 0x4d6508 0x5d0e89 0x5df165 0x61b8dd 0x502eb8 0x61bac5 0x618f16 0x61eb6f 0x61eb70 0x656e1b 0x4d07fa 0x8be02e 0x8bdfe8 0x8be895 0x8d1a90 0x8d0faf 0x46dda1
+#	0x468468	internal/poll.runtime_pollWait+0x88			runtime/netpoll.go:305
+#	0x4d51b1	internal/poll.(*pollDesc).wait+0x31			internal/poll/fd_poll_runtime.go:84
+#	0x4d6519	internal/poll.(*pollDesc).waitRead+0x259		internal/poll/fd_poll_runtime.go:89
+#	0x4d6507	internal/poll.(*FD).Read+0x247				internal/poll/fd_unix.go:167
+#	0x5d0e88	net.(*netFD).Read+0x28					net/fd_posix.go:55
+#	0x5df164	net.(*conn).Read+0x44					net/net.go:183
+#	0x61b8dc	crypto/tls.(*atLeastReader).Read+0x3c			crypto/tls/conn.go:787
+#	0x502eb7	bytes.(*Buffer).ReadFrom+0x97				bytes/buffer.go:202
+#	0x61bac4	crypto/tls.(*Conn).readFromUntil+0xe4			crypto/tls/conn.go:809
+#	0x618f15	crypto/tls.(*Conn).readRecordOrCCS+0x115		crypto/tls/conn.go:616
+#	0x61eb6e	crypto/tls.(*Conn).readRecord+0x16e			crypto/tls/conn.go:582
+#	0x61eb6f	crypto/tls.(*Conn).Read+0x16f				crypto/tls/conn.go:1287
+#	0x656e1a	bufio.(*Reader).Read+0x1ba				bufio/bufio.go:237
+#	0x4d07f9	io.ReadAtLeast+0x99					io/io.go:332
+#	0x8be02d	io.ReadFull+0x6d					io/io.go:351
+#	0x8bdfe7	golang.org/x/net/http2.readFrameHeader+0x27		golang.org/x/net@v0.8.0/http2/frame.go:237
+#	0x8be894	golang.org/x/net/http2.(*Framer).ReadFrame+0x94		golang.org/x/net@v0.8.0/http2/frame.go:498
+#	0x8d1a8f	golang.org/x/net/http2.(*clientConnReadLoop).run+0x12f	golang.org/x/net@v0.8.0/http2/transport.go:2224
+#	0x8d0fae	golang.org/x/net/http2.(*ClientConn).readLoop+0x6e	golang.org/x/net@v0.8.0/http2/transport.go:2119
+
+1 @ 0x43cb56 0x4353f7 0x468469 0x4d51b2 0x4d651a 0x4d6508 0x5d0e89 0x5df165 0x6c9dff 0x46dda1
+#	0x468468	internal/poll.runtime_pollWait+0x88		runtime/netpoll.go:305
+#	0x4d51b1	internal/poll.(*pollDesc).wait+0x31		internal/poll/fd_poll_runtime.go:84
+#	0x4d6519	internal/poll.(*pollDesc).waitRead+0x259	internal/poll/fd_poll_runtime.go:89
+#	0x4d6507	internal/poll.(*FD).Read+0x247			internal/poll/fd_unix.go:167
+#	0x5d0e88	net.(*netFD).Read+0x28				net/fd_posix.go:55
+#	0x5df164	net.(*conn).Read+0x44				net/net.go:183
+#	0x6c9dfe	net/http.(*connReader).backgroundRead+0x3e	net/http/server.go:678
+
+1 @ 0x43cb56 0x4353f7 0x468469 0x4d51b2 0x4da434 0x4da421 0x5d2f95 0x5e7d28 0x5e6efd 0x6d53a5 0x14dcd99 0x46dda1
+#	0x468468	internal/poll.runtime_pollWait+0x88							runtime/netpoll.go:305
+#	0x4d51b1	internal/poll.(*pollDesc).wait+0x31							internal/poll/fd_poll_runtime.go:84
+#	0x4da433	internal/poll.(*pollDesc).waitRead+0x233						internal/poll/fd_poll_runtime.go:89
+#	0x4da420	internal/poll.(*FD).Accept+0x220							internal/poll/fd_unix.go:614
+#	0x5d2f94	net.(*netFD).accept+0x34								net/fd_unix.go:172
+#	0x5e7d27	net.(*TCPListener).accept+0x27								net/tcpsock_posix.go:142
+#	0x5e6efc	net.(*TCPListener).Accept+0x3c								net/tcpsock.go:288
+#	0x6d53a4	net/http.(*Server).Serve+0x384								net/http/server.go:3070
+#	0x14dcd98	sigs.k8s.io/controller-runtime/pkg/manager.(*controllerManager).httpServe.func1+0x98	sigs.k8s.io/controller-runtime@v0.13.1/pkg/manager/internal.go:367
+
+1 @ 0x43cb56 0x4353f7 0x468469 0x4d51b2 0x4da434 0x4da421 0x5d2f95 0x5e7d28 0x5e6efd 0x6d53a5 0x6d4fdd 0x15f6cef 0x15f6c95 0x46dda1
+#	0x468468	internal/poll.runtime_pollWait+0x88		runtime/netpoll.go:305
+#	0x4d51b1	internal/poll.(*pollDesc).wait+0x31		internal/poll/fd_poll_runtime.go:84
+#	0x4da433	internal/poll.(*pollDesc).waitRead+0x233	internal/poll/fd_poll_runtime.go:89
+#	0x4da420	internal/poll.(*FD).Accept+0x220		internal/poll/fd_unix.go:614
+#	0x5d2f94	net.(*netFD).accept+0x34			net/fd_unix.go:172
+#	0x5e7d27	net.(*TCPListener).accept+0x27			net/tcpsock_posix.go:142
+#	0x5e6efc	net.(*TCPListener).Accept+0x3c			net/tcpsock.go:288
+#	0x6d53a4	net/http.(*Server).Serve+0x384			net/http/server.go:3070
+#	0x6d4fdc	net/http.(*Server).ListenAndServe+0x7c		net/http/server.go:2999
+#	0x15f6cee	net/http.ListenAndServe+0x6e			net/http/server.go:3255
+#	0x15f6c94	main.main.func2+0x14				github.com/couchbase/couchbase-operator/cmd/couchbase-operator/main.go:114
+
+1 @ 0x43cb56 0x44c9fc 0x14a7bb9 0xfb3a5a 0x46dda1
+#	0x14a7bb8	k8s.io/client-go/tools/cache.(*processorListener).pop+0x118	k8s.io/client-go@v0.25.4/tools/cache/shared_informer.go:783
+#	0xfb3a59	k8s.io/apimachinery/pkg/util/wait.(*Group).Start.func1+0x59	k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:75
+
+1 @ 0x43cb56 0x44c9fc 0x14dd493 0x15f74fb 0x43c792 0x46dda1
+#	0x14dd492	sigs.k8s.io/controller-runtime/pkg/manager.(*controllerManager).Start+0x5f2	sigs.k8s.io/controller-runtime@v0.13.1/pkg/manager/internal.go:504
+#	0x15f74fa	main.main+0x7da									github.com/couchbase/couchbase-operator/cmd/couchbase-operator/main.go:120
+#	0x43c791	runtime.main+0x211								runtime/proc.go:250
+
+1 @ 0x43cb56 0x44c9fc 0x156b393 0x46dda1
+#	0x156b392	github.com/couchbase/couchbase-operator/pkg/cluster.(*janitor).run+0x172	github.com/couchbase/couchbase-operator/pkg/cluster/janitor.go:300
+
+1 @ 0x43cb56 0x44c9fc 0xfb3d75 0xfb3be9 0x148f170 0x148f0f2 0x148e9cf 0x14de698 0x46dda1
+#	0xfb3d74	k8s.io/apimachinery/pkg/util/wait.BackoffUntil+0x134						k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:169
+#	0xfb3be8	k8s.io/apimachinery/pkg/util/wait.JitterUntil+0x88						k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:135
+#	0x148f16f	k8s.io/apimachinery/pkg/util/wait.Until+0xcf							k8s.io/apimachinery@v0.25.4/pkg/util/wait/wait.go:92
+#	0x148f0f1	k8s.io/client-go/tools/leaderelection.(*LeaderElector).renew+0x51				k8s.io/client-go@v0.25.4/tools/leaderelection/leaderelection.go:268
+#	0x148e9ce	k8s.io/client-go/tools/leaderelection.(*LeaderElector).Run+0x12e				k8s.io/client-go@v0.25.4/tools/leaderelection/leaderelection.go:212
+#	0x14de697	sigs.k8s.io/controller-runtime/pkg/manager.(*controllerManager).startLeaderElection.func3+0x37	sigs.k8s.io/controller-runtime@v0.13.1/pkg/manager/internal.go:647
+
+1 @ 0x43cb56 0x44c9fc 0xfb7e25 0x46dda1
+#	0xfb7e24	k8s.io/client-go/util/workqueue.(*delayingType).waitingLoop+0x304	k8s.io/client-go@v0.25.4/util/workqueue/delaying_queue.go:233
+
